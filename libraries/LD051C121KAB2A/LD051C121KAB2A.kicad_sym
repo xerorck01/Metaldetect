@@ -1,0 +1,38 @@
+
+(kicad_symbol_lib (version 20211014) (generator kicad_symbol_editor)
+  (symbol "LD051C121KAB2A" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+    (property "Reference" "C" (id 0) (at -4.07287 2.29098 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Value" "LD051C121KAB2A" (id 1) (at -4.06547 -4.06547 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Footprint" "CAPC2012X140N" (id 2) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (symbol "LD051C121KAB2A_0_0"
+      (rectangle (start -0.7647885 -2.0347885) (end -0.2562815 2.0342815)
+        (stroke (width 0.1)) (fill (type outline))
+      )
+      (rectangle (start 0.2522435 -2.0337565) (end 0.7607465 2.0332535)
+        (stroke (width 0.1)) (fill (type outline))
+      )
+      (pin passive line (at -5.588 0.0 0) (length 5.08)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "1"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at 5.588 0.0 180.0) (length 5.08)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "2"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+    )
+  )
+)

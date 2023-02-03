@@ -1,0 +1,127 @@
+
+(kicad_symbol_lib (version 20211014) (generator kicad_symbol_editor)
+  (symbol "RPX-1.5-R" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+    (property "Reference" "PS" (id 0) (at -12.7 11.43 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Value" "RPX-1.5-R" (id 1) (at -12.7 -13.97 0)
+      (effects (font (size 1.27 1.27)) (justify top left))
+    )
+    (property "Footprint" "CONV_RPX-1.5-R" (id 2) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MANUFACTURER" "RECOM" (id 4) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "PARTREV" "0/2020" (id 5) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MAXIMUM_PACKAGE_HEIGHT" "1.60mm" (id 6) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "STANDARD" "Manufacturer Recommendations" (id 7) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (symbol "RPX-1.5-R_0_0"
+      (rectangle (start -12.7 -12.7) (end 12.7 10.16)
+        (stroke (width 0.254)) (fill (type background))
+      )
+      (pin output line (at 17.78 -2.54 180.0) (length 5.08)
+        (name "PG"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "1"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin input line (at -17.78 2.54 0) (length 5.08)
+        (name "CTRL/SYNC"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "2"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin input line (at 17.78 5.08 180.0) (length 5.08)
+        (name "FB"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "3"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin input line (at 17.78 0.0 180.0) (length 5.08)
+        (name "PGS"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "4"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -17.78 -2.54 0) (length 5.08)
+        (name "SW"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "6_7_8"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -17.78 -2.54 0) (length 5.08)
+        (name "SW"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "12"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin output line (at 17.78 7.62 180.0) (length 5.08)
+        (name "VOUT"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "9_10_11"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin no_connect line (at 17.78 -7.62 180.0) (length 5.08)
+        (name "DNC"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "13"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin power_in line (at 17.78 -10.16 180.0) (length 5.08)
+        (name "GND"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "5"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin power_in line (at 17.78 -10.16 180.0) (length 5.08)
+        (name "GND"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "14"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin power_in line (at 17.78 -10.16 180.0) (length 5.08)
+        (name "GND"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "15"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin input line (at -17.78 7.62 0) (length 5.08)
+        (name "VIN"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "16"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+    )
+  )
+)
