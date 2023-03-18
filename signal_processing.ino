@@ -1,11 +1,12 @@
-const int output_pin = 1;
-const int input_pin = 2;
-const int list_length = 300;
+const int output_pin = 4;
+const int test_pin = 5;
+const int input_pin = 3;
+const int list_length = 100;
 
-const int lower_bound = 100;    //times between lower and upper bound will trigger the signal
-const int upper_bound = 70;      
-const int filter = 10;  //any time less than filter will not get recorded
-const int threshold = list_length*0.9;
+const int lower_bound = 3;    //times between lower and upper bound will trigger the signal
+const int upper_bound = 10;      
+const int filter = 0;  //any time less than filter will not get recorded
+const int threshold = list_length*0.4;
 
 unsigned long start_time;
 struct lList* first;
@@ -17,32 +18,59 @@ struct lList{
 };
 
 void setup() {
+    //Serial.begin(9600);
+    //while(!Serial){};
+
+
   pinMode(output_pin,OUTPUT);
-  attachInterrupt(digitalPinToInterrupt(input_pin),start,RISING);
+  pinMode(test_pin,OUTPUT);
   attachInterrupt(digitalPinToInterrupt(input_pin),end,FALLING);
+  attachInterrupt(digitalPinToInterrupt(input_pin-1),start,RISING);
+
+  //TCCR1A = (1<<);
+  //TCCR1A = 0; //clear presets
+
+  TCCR1B  |= (1<<0);   //no prescaler
+
+  TIMSK1 |= (1<<ICIE1);  //enable input capture
+  TIFR1 |= (1<<ICF1);
 
   init_lList();
+
+
+
+    //Serial.println("\n\n\nstarting...\n\n\n");
+
 }
 
 
 void loop() {
   int count = 0;
-
+  
   noInterrupts();
   lList* current = first;
-  if ((current->time > lower_bound)&&(current->time > upper_bound)){
+  if ((current->time > lower_bound)&&(current->time < upper_bound)){
     count++;
   }
   current = current->next;
   interrupts();
 
   while(current != NULL){
-    if ((current->time > lower_bound)&&(current->time > upper_bound)){
+    if ((current->time > lower_bound)&&(current->time < upper_bound)){
       count++;
+      //          digitalWrite(test_pin,1);
     }
+    //else{
+    //            digitalWrite(test_pin,0);
+    //}
     current = current->next;
   }
-  //output_pin = count > threshold
+
+  if(count > threshold)
+    digitalWrite(output_pin,1);
+  else
+    digitalWrite(output_pin,0);
+
 }
 
 void init_lList(){
@@ -59,20 +87,36 @@ void init_lList(){
 }
 
 void start(){   //starts timer
-  start_time = micros();            //note I may redo this to directly work with the timer
+  TCNT1 = 0x0000;
+
+  //Serial.println(TCNT1);
+  //Serial.println("A");
+
+  TIFR1=(1<<ICF1);
 }
 
 void end(){     //ends timer, adds value to linked list
-  int end_time = micros();
+  unsigned long end_time = TCNT1;
 
-  if ((start_time - end_time) < filter){
+  //Serial.println(end_time);
+  //Serial.println("B");
+
+  if ((end_time) < filter){
     return;
   }
 
+/*
+    if ((end_time > lower_bound)&&(end_time < upper_bound)){
+          digitalWrite(test_pin,1);
+    }
+    else{
+          digitalWrite(test_pin,0);
+    }
+*/
   struct lList* temp = new lList;
   temp->next = NULL;
   
-  temp->time = start_time - end_time;     //adds a new time to the end of the list
+  temp->time = end_time;     //adds a new time to the end of the list
   last->next = temp;
   last = temp;
 
