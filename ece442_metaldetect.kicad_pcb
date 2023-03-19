@@ -2346,6 +2346,9 @@
   )
 
   (gr_rect (start 162.56 126.238) (end 81.28 101.6) (layer "Edge.Cuts") (width 0.1) (fill none) (tstamp 1f7b4879-320a-4493-9bc5-bc028bc1bbd0))
+  (gr_text "Underwater Gold Metal Detector V0.1" (at 146.812 103.378) (layer "F.SilkS") (tstamp 35ca66e7-ef42-4b25-ad14-7e1bb56e9a00)
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
   (dimension (type aligned) (layer "F.Cu") (tstamp 78290c75-22e2-41c2-97da-53359e3fa6ea)
     (pts (xy 162.56 101.6) (xy 162.56 126.492))
     (height -11.811)
